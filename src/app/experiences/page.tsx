@@ -25,6 +25,7 @@ import {
   SiFlask,
   SiSpringboot,
   SiNextdotjs,
+  SiScikitlearn,
   SiTensorflow,
   SiKeras,
   SiGooglecloud,
@@ -54,12 +55,13 @@ const techIcons: { [key: string]: React.ElementType } = {
   'TypeScript': SiTypescript,
   'Python': SiPython,
   'Java': FaJava,
-  'React.js': SiReact,
-  'Express.js': SiExpress,
+  'React': SiReact,
+  'Express': SiExpress,
   'Node.js': SiNodedotjs,
   'Flask': SiFlask,
   'Spring Boot': SiSpringboot,
   'Next.js': SiNextdotjs,
+  'Scikit-Learn': SiScikitlearn,
   'TensorFlow': SiTensorflow,
   'Neural Networks': SiKeras,
   'Generative AI': SiGooglegemini,
@@ -134,14 +136,14 @@ export default function ExperiencePage() {
     {
       title: 'Web Development',
       icon: Globe,
-      skills: ['React.js', 'Next.js', 'Express.js', 'Node.js', 'Flask', 'Spring Boot'],
+      skills: ['React', 'Express', 'Node.js', 'Next.js', 'Flask', 'Spring Boot'],
       color: 'from-cyan-500/20 to-green-500/20',
       borderColor: 'border-cyan-500/30',
     },
     {
       title: 'Machine Learning',
       icon: Brain,
-      skills: ['TensorFlow', 'Neural Networks', 'Generative AI', 'Agentic AI'],
+      skills: ['Scikit-Learn', 'TensorFlow', 'Neural Networks', 'Generative AI', 'Agentic AI'],
       color: 'from-purple-500/20 to-pink-500/20',
       borderColor: 'border-purple-500/30',
     },
@@ -441,7 +443,7 @@ export default function ExperiencePage() {
             variants={itemVariants}
             whileHover={{ y: -5 }}
           >
-            <p className="text-3xl font-bold text-cyan-400 mb-2">5</p>
+            <p className="text-3xl font-bold text-cyan-400 mb-2">{experiences.length}</p>
             <p className="text-gray-300 text-sm">Work Experiences</p>
           </motion.div>
           <motion.div

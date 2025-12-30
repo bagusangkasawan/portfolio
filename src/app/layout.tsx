@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,9 +15,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "Bagus Angkasawan - Portfolio",
   description: "Full Stack Developer & AI/ML Engineer | Professional Portfolio",
+  metadataBase: new URL("https://portfolio-angkasawan.vercel.app"),
 };
 
 export default function RootLayout({
@@ -26,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id">
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
         <meta name="theme-color" content="#0a0a0a" />
       </head>

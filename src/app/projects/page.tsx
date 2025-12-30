@@ -1,9 +1,12 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   ExternalLink,
   Zap,
+  ChevronDown,
+  ChevronUp,
 } from 'lucide-react';
 import {
   SiHtml5,
@@ -47,9 +50,9 @@ const techIcons: { [key: string]: React.ElementType } = {
   'TypeScript': SiTypescript,
   'Python': SiPython,
   'Java': FaJava,
-  'ReactJS': SiReact,
-  'ExpressJS': SiExpress,
-  'NodeJS': SiNodedotjs,
+  'React': SiReact,
+  'Express': SiExpress,
+  'Node.js': SiNodedotjs,
   'Flask': SiFlask,
   'Spring Boot': SiSpringboot,
   'Next.js': SiNextdotjs,
@@ -84,6 +87,28 @@ interface Project {
 }
 
 export default function ProjectsPage() {
+  const [visibleCount, setVisibleCount] = useState(3);
+  const [expandedProjects, setExpandedProjects] = useState<Set<number>>(new Set());
+
+  const toggleProject = (idx: number) => {
+    const newExpanded = new Set(expandedProjects);
+    if (newExpanded.has(idx)) {
+      newExpanded.delete(idx);
+    } else {
+      newExpanded.add(idx);
+    }
+    setExpandedProjects(newExpanded);
+  };
+
+  const expandAll = () => {
+    const allIndices = new Set(projects.slice(0, visibleCount).map((_, idx) => idx));
+    setExpandedProjects(allIndices);
+  };
+
+  const collapseAll = () => {
+    setExpandedProjects(new Set());
+  };
+
   const projects: Project[] = [
     {
       title: 'CourseMate',
@@ -104,7 +129,7 @@ export default function ProjectsPage() {
       title: 'MentalMate v1',
       description: 'Mental health assistant with AI support',
       longDescription: 'Developed an AI-powered mental health assistant designed to provide emotional support and mental wellness guidance. Winner of Microsoft Online Hackathon 2025. Features conversational AI, mood tracking, and personalized wellness recommendations.',
-      technologies: ['Python', 'Generative AI', 'Flask', 'Microsoft Azure', 'NodeJS'],
+      technologies: ['Python', 'Generative AI', 'Flask', 'Microsoft Azure', 'Node.js'],
       highlights: [
         'Conversational AI for mental health',
         'Real-time emotional support',
@@ -119,7 +144,7 @@ export default function ProjectsPage() {
       title: 'MentyMate (MentalMate v2)',
       description: 'Enhanced mental health assistant with interactive features',
       longDescription: 'Upgraded version of MentalMate with enhanced interactive capabilities, improved UI/UX, and advanced mental health features. Top 30 winner in Yayasan Peduli BUMN Hackathon - Pikiran Terbaik Negeri x elevAIte. Features include progress tracking, community support, and professional resource integration.',
-      technologies: ['ReactJS', 'TypeScript', 'Python', 'Generative AI', 'Google Cloud Platform'],
+      technologies: ['React', 'TypeScript', 'Python', 'Generative AI', 'Google Cloud Platform'],
       highlights: [
         'Interactive wellness dashboard',
         'Progress tracking & analytics',
@@ -149,7 +174,7 @@ export default function ProjectsPage() {
       title: 'EduMate',
       description: 'Interactive learning platform with student monitoring',
       longDescription: 'Comprehensive educational platform offering interactive learning experiences combined with intelligent student monitoring capabilities. Winner of IDCamp Developer Challenge #2 by Indosat Ooredoo Hutchison x SheHacks 2024. Features real-time progress tracking, adaptive learning paths, and teacher dashboards.',
-      technologies: ['Next.js', 'ReactJS', 'TypeScript', 'ExpressJS', 'MongoDB', 'Google Cloud Platform'],
+      technologies: ['Next.js', 'React', 'TypeScript', 'Express', 'MongoDB', 'Google Cloud Platform'],
       highlights: [
         'Interactive learning modules',
         'Real-time student monitoring',
@@ -163,7 +188,7 @@ export default function ProjectsPage() {
     {
       title: 'CheckMate',
       description: 'AI-powered product insights and quality assessment',
-      longDescription: 'Intelligent platform for product analysis, quality assessment, and educational insights using AI. Top 20 winner in Hackinfest Sucofindo 2025. Provides comprehensive product evaluation, compliance checking, and detailed analytics for informed decision-making.',
+      longDescription: 'Intelligent platform for product analysis, quality assessment, and educational insights using AI. Top 20 (Best 4 Per Theme) winner in Hackinfest Sucofindo 2025. Provides comprehensive product evaluation, compliance checking, and detailed analytics for informed decision-making.',
       technologies: ['Python', 'Generative AI', 'TensorFlow', 'Flask', 'Google Cloud Platform'],
       highlights: [
         'AI-powered quality assessment',
@@ -179,7 +204,7 @@ export default function ProjectsPage() {
       title: 'XportMate',
       description: 'Digital export support and trade facilitation platform',
       longDescription: 'Platform designed to support digital export initiatives and facilitate international trade. Provides tools and resources for businesses looking to expand their digital export capabilities, market analysis, and trade documentation support.',
-      technologies: ['ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB', 'AWS'],
+      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'AWS'],
       highlights: [
         'Digital export facilitation',
         'Market analysis tools',
@@ -194,7 +219,7 @@ export default function ProjectsPage() {
       title: 'EkrafMate',
       description: 'Creative talent matching and opportunity platform',
       longDescription: 'Innovative platform connecting creative talents with business opportunities. Facilitates collaboration between creative professionals and organizations seeking creative services. Features portfolio showcasing, project matching, and collaboration tools.',
-      technologies: ['ReactJS', 'TypeScript', 'NodeJS', 'PostgreSQL', 'AWS'],
+      technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'AWS'],
       highlights: [
         'Talent matching algorithm',
         'Portfolio management system',
@@ -208,8 +233,8 @@ export default function ProjectsPage() {
     {
       title: 'CoMate',
       description: 'Collaborative platform selected in Meta Llama Project Incubator',
-      longDescription: 'An innovative collaborative platform built by an amazing team that achieved Top 50 recognition in the prestigious Llama Project Incubator by Meta x Hacktiv8 Indonesia. The project demonstrates strong potential in leveraging Meta\'s Llama AI technology for creating meaningful collaborative experiences.',
-      technologies: ['Python', 'Generative AI', 'Llama AI', 'ReactJS', 'NodeJS', 'Google Cloud Platform'],
+      longDescription: 'An innovative collaborative platform built by an amazing team that achieved Top 50 (Rank 22) recognition in the prestigious Llama Project Incubator by Meta x Hacktiv8 Indonesia. The project demonstrates strong potential in leveraging Meta\'s Llama AI technology for creating meaningful collaborative experiences.',
+      technologies: ['Python', 'Generative AI', 'Llama AI', 'React', 'Node.js', 'Google Cloud Platform'],
       highlights: [
         'Top 50 Llama Project Incubator finalist',
         'Meta x Hacktiv8 Indonesia partnership',
@@ -227,8 +252,8 @@ export default function ProjectsPage() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+        staggerChildren: 0.05,
+        delayChildren: 0,
       },
     },
   };
@@ -238,7 +263,7 @@ export default function ProjectsPage() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8 },
+      transition: { duration: 0 },
     },
   };
 
@@ -378,14 +403,54 @@ export default function ProjectsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <motion.h2
-            className="text-3xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            All Projects
-          </motion.h2>
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-12">
+            <motion.h2
+              className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              All Projects
+            </motion.h2>
+            <div className="flex gap-3">
+              {(() => {
+                const visibleProjects = projects.slice(0, visibleCount);
+                const allExpanded = visibleProjects.every((_, idx) => expandedProjects.has(idx));
+                const hasAnyExpanded = visibleProjects.some((_, idx) => expandedProjects.has(idx));
+
+                return (
+                  <>
+                    {!allExpanded && (
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={expandAll}
+                        className="px-4 py-2 rounded-lg font-semibold
+                                  bg-cyan-500/20 hover:bg-cyan-500/30
+                                  text-cyan-400 border border-cyan-500/30
+                                  transition-all text-sm"
+                      >
+                        Expand All
+                      </motion.button>
+                    )}
+                    {allExpanded && hasAnyExpanded && (
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        onClick={collapseAll}
+                        className="px-4 py-2 rounded-lg font-semibold
+                                  bg-purple-500/20 hover:bg-purple-500/30
+                                  text-purple-400 border border-purple-500/30
+                                  transition-all text-sm"
+                      >
+                        Collapse All
+                      </motion.button>
+                    )}
+                  </>
+                );
+              })()}
+            </div>
+          </div>
 
           <motion.div
             className="space-y-8"
@@ -393,7 +458,7 @@ export default function ProjectsPage() {
             initial="hidden"
             animate="visible"
           >
-            {projects.map((project, idx) => (
+            {projects.slice(0, visibleCount).map((project, idx) => (
               <motion.div
                 key={idx}
                 className="glass-effect p-8 rounded-2xl hover:border-cyan-400/40 transition-all duration-300 group"
@@ -421,59 +486,107 @@ export default function ProjectsPage() {
                   {project.longDescription}
                 </p>
 
-                <div className="mb-6">
-                  <h3 className="text-sm font-semibold text-purple-300 mb-3">Key Highlights</h3>
-                  <ul className="space-y-2">
-                    {project.highlights.map((highlight, hIdx) => (
-                      <li key={hIdx} className="flex items-start gap-2">
-                        <Zap className="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-300">{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="mb-6">
-                  <h3 className="text-sm font-semibold text-purple-300 mb-3">Tech Stack</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, techIdx) => {
-                      const IconComponent = techIcons[tech];
-                      return (
-                        <span
-                          key={techIdx}
-                          className="px-3 py-1 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-white text-sm font-semibold border border-cyan-500/30 hover:border-cyan-400/60 transition-all duration-200 hover:shadow-lg hover:shadow-cyan-500/20 flex items-center gap-2"
-                        >
-                          {IconComponent ? <IconComponent className="w-4 h-4" /> : '⚙️'}
-                          {tech}
-                        </span>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                <div className="flex gap-4 pt-4 border-t border-white/10">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-white transition-colors"
-                    >
-                      <SiGithub className="w-5 h-5" />
-                      View on GitHub
-                    </a>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => toggleProject(idx)}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg mb-6
+                            bg-cyan-500/20 hover:bg-cyan-500/30
+                            text-cyan-400 border border-cyan-500/30
+                            transition-all font-semibold text-sm"
+                >
+                  {expandedProjects.has(idx) ? (
+                    <>
+                      <ChevronUp className="w-4 h-4" />
+                      Collapse Details
+                    </>
+                  ) : (
+                    <>
+                      <ChevronDown className="w-4 h-4" />
+                      Expand Details
+                    </>
                   )}
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      className="flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 hover:text-cyan-300 transition-colors border border-cyan-500/30"
+                </motion.button>
+
+                <AnimatePresence>
+                  {expandedProjects.has(idx) && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <ExternalLink className="w-5 h-5" />
-                      View Live
-                    </a>
+                      <div className="mb-6">
+                        <h3 className="text-sm font-semibold text-purple-300 mb-3">Key Highlights</h3>
+                        <ul className="space-y-2">
+                          {project.highlights.map((highlight, hIdx) => (
+                            <li key={hIdx} className="flex items-start gap-2">
+                              <Zap className="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0" />
+                              <span className="text-gray-300">{highlight}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+
+                      <div className="mb-6">
+                        <h3 className="text-sm font-semibold text-purple-300 mb-3">Tech Stack</h3>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.map((tech, techIdx) => {
+                            const IconComponent = techIcons[tech];
+                            return (
+                              <span
+                                key={techIdx}
+                                className="px-3 py-1 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-white text-sm font-semibold border border-cyan-500/30 hover:border-cyan-400/60 transition-all duration-200 hover:shadow-lg hover:shadow-cyan-500/20 flex items-center gap-2"
+                              >
+                                {IconComponent ? <IconComponent className="w-4 h-4" /> : '⚙️'}
+                                {tech}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
+
+                      <div className="flex gap-4 pt-4 border-t border-white/10">
+                        {project.github && (
+                          <a
+                            href={project.github}
+                            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-white transition-colors"
+                          >
+                            <SiGithub className="w-5 h-5" />
+                            View on GitHub
+                          </a>
+                        )}
+                        {project.link && (
+                          <a
+                            href={project.link}
+                            className="flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 hover:text-cyan-300 transition-colors border border-cyan-500/30"
+                          >
+                            <ExternalLink className="w-5 h-5" />
+                            View Live
+                          </a>
+                        )}
+                      </div>
+                    </motion.div>
                   )}
-                </div>
+                </AnimatePresence>
               </motion.div>
             ))}
           </motion.div>
+          {visibleCount < projects.length && (
+            <div className="flex justify-center mt-12">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setVisibleCount(prev => prev + 3)}
+                className="px-6 py-3 rounded-full font-semibold
+                          bg-gradient-to-r from-purple-500 to-cyan-500
+                          text-white shadow-lg shadow-cyan-500/20
+                          hover:shadow-cyan-500/40 transition-all"
+              >
+                Show More Projects
+              </motion.button>
+            </div>
+          )}
         </motion.div>
 
         <motion.div

@@ -10,14 +10,12 @@ interface PageTransitionProps {
 }
 
 export default function PageTransition({ children }: PageTransitionProps) {
-  const [showScrollHint, setShowScrollHint] = useState(true);
+  const [showScrollHint, setShowScrollHint] = useState(false);
   const pathname = usePathname();
   const isHomePage = pathname === '/';
 
   useEffect(() => {
-    setShowScrollHint(false);
     window.scrollTo(0, 0);
-
     if (isHomePage) return;
 
     const timer = setTimeout(() => {

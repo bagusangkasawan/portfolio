@@ -254,6 +254,7 @@ body::before {
 /* Card Hover Effects */
 .card {
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  contain: layout style paint;
 }
 
 .card:hover {
@@ -263,5 +264,9 @@ body::before {
 
 .animate-blink {
   animation: blink 1s infinite;
+  will-change: opacity;
 }
 
+.contain-layout {
+  contain: layout style paint;
+}

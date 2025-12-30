@@ -29,7 +29,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 w-full z-50 fade-in-down">
+    <nav className="fixed top-0 w-full z-50 fade-in-down contain-layout">
       <div className="glass-effect">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -56,6 +56,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-cyan-500/20 transition-all duration-300 hover:scale-110 hover:text-cyan-400"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
             >
               <svg
                 className="text-cyan-400 w-6 h-6"

@@ -21,12 +21,12 @@ export default function HeroImage() {
       initial={{ opacity: 0, scale: 0.8, rotateY: -20 }}
       animate={{ opacity: 1, scale: 1, rotateY: 0 }}
       transition={{
-        duration: 0.8,
+        duration: 0.6,
         delay: 0.2,
       }}
     >
       <motion.div
-        className="relative w-full max-w-lg"
+        className="relative w-full max-w-lg overflow-hidden"
         animate={{
           y: [0, -15, 0],
         }}
@@ -36,9 +36,10 @@ export default function HeroImage() {
         }}
         onMouseMove={handleMouseMove}
         onMouseLeave={() => setMousePosition({ x: 0, y: 0 })}
+        style={{ willChange: 'transform' }}
       >
         <motion.div
-          className="relative w-full aspect-square drop-shadow-[0_10px_30px_rgba(6,182,212,0.4)]"
+          className="relative w-full aspect-square drop-shadow-[0_5px_15px_rgba(6,182,212,0.2)] rounded-3xl overflow-hidden"
           animate={{
             x: mousePosition.x,
             y: mousePosition.y,
@@ -48,19 +49,17 @@ export default function HeroImage() {
             stiffness: 200,
             damping: 20,
           }}
+          style={{ willChange: 'transform' }}
         >
           <Image
-            src="/my-photo.png"
+            src="/my-photo.webp"
             alt="Bagus Angkasawan"
             fill
             sizes="(max-width: 768px) 100vw, 400px"
-            className="object-contain"
+            className="object-contain opacity-95"
             priority
           />
         </motion.div>
-
-        <div className="absolute -top-8 -right-8 w-32 h-32 bg-cyan-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl"></div>
       </motion.div>
     </motion.div>
   );

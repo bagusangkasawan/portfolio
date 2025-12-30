@@ -22,7 +22,7 @@ import { FaMicrosoft, FaFileAlt, FaAws } from 'react-icons/fa';
 export default function CertificationsPage() {
   const certifications = [
     {
-      name: 'AZURE AI FUNDAMENTALS',
+      name: 'Azure AI Fundamentals',
       issuer: 'Microsoft',
       date: 'June 1, 2025',
       url: 'https://learn.microsoft.com/en-us/users/bagusangkasawan/credentials/dab289db842acf65',
@@ -36,14 +36,14 @@ export default function CertificationsPage() {
       icon: SiTensorflow,
     },
     {
-      name: 'JUNIOR WEB DEVELOPER',
+      name: 'Junior Web Developer',
       issuer: 'BNSP (LSP Informatika)',
       date: 'October 20, 2023',
-      url: '#',
+      url: 'https://drive.google.com/file/d/1F0m-g4tNLJW105ACH2kTKFedq-YZSmkg/view',
       icon: FaFileAlt,
     },
     {
-      name: 'CLOUD COMPUTING',
+      name: 'Cloud Computing',
       issuer: 'Alibaba Cloud',
       date: 'May 22, 2024',
       url: 'https://aliyun-aps-cloud-public.oss-cn-hangzhou.aliyuncs.com/img_4b2bc5998838d997de06df7e5bcd2695.png',
@@ -96,14 +96,14 @@ export default function CertificationsPage() {
 
   const awards = [
     {
-      title: 'CoMate - Top 50 Llama Project Incubator',
+      title: 'CoMate - Top 50 (Rank 22) Llama Project Incubator',
       issuer: 'Meta x Hacktiv8 Indonesia',
       type: 'Hackathon',
       date: 'October 2025',
       icon: Trophy,
     },
     {
-      title: 'CheckMate - Top 20 Hackathon',
+      title: 'CheckMate - Top 20 (Best 4 Per Theme) Hackathon',
       issuer: 'Hackinfest Sucofindo 2025',
       type: 'Hackathon',
       date: 'September 2025',
@@ -117,8 +117,8 @@ export default function CertificationsPage() {
       icon: Star,
     },
     {
-      title: 'MentyMate - Top 30 Hackathon',
-      issuer: 'Yayasan Peduli BUMN - Pikiran Terbaik Negeri x elevAIte',
+      title: 'MentyMate - Top 30 Hackathon Yayasan Peduli BUMN',
+      issuer: 'Pikiran Terbaik Negeri x elevAIte',
       type: 'Hackathon',
       date: 'July 2025',
       icon: Trophy,
@@ -343,19 +343,21 @@ export default function CertificationsPage() {
             animate="visible"
           >
             <motion.div className="text-center" variants={itemVariants}>
-              <p className="text-3xl font-bold text-cyan-400 mb-2">4</p>
+              <p className="text-3xl font-bold text-cyan-400 mb-2">{certifications.length}</p>
               <p className="text-gray-300 text-sm">Official Certifications</p>
             </motion.div>
             <motion.div className="text-center" variants={itemVariants}>
-              <p className="text-3xl font-bold text-purple-400 mb-2">5</p>
+              <p className="text-3xl font-bold text-purple-400 mb-2">{professionalDevelopment.length}</p>
               <p className="text-gray-300 text-sm">Bootcamp Programs</p>
             </motion.div>
             <motion.div className="text-center" variants={itemVariants}>
-              <p className="text-3xl font-bold text-pink-400 mb-2">6</p>
+              <p className="text-3xl font-bold text-pink-400 mb-2">{awards.length}</p>
               <p className="text-gray-300 text-sm">Major Awards</p>
             </motion.div>
             <motion.div className="text-center" variants={itemVariants}>
-              <p className="text-3xl font-bold text-green-400 mb-2">15</p>
+              <p className="text-3xl font-bold text-green-400 mb-2">
+                {certifications.length + professionalDevelopment.length + awards.length}
+              </p>
               <p className="text-gray-300 text-sm">Total Programs</p>
             </motion.div>
           </motion.div>

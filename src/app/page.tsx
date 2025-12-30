@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import { SiGmail, SiLinkedin, SiGithub, SiInstagram } from 'react-icons/si';
 import { motion } from 'framer-motion';
-import TypingText from '@/components/TypingText';
-import HeroImage from '@/components/HeroImage';
+import dynamic from 'next/dynamic';
+const TypingText = dynamic(() => import('@/components/TypingText'), { ssr: false });
+const HeroImage = dynamic(() => import('@/components/HeroImage'), { ssr: false });
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -22,25 +23,31 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.8 },
+    transition: { duration: 0.5 },
   },
 };
 
 export default function Home() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl w-full grid md:grid-cols-2 gap-12 items-center">
+    <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-x-hidden pt-5 md:pt-0">
+      <div className="max-w-7xl w-full grid md:grid-cols-2 gap-4 md:gap-12 items-center">
         <motion.div
-          className="order-2 md:order-1"
+          className="order-2 md:order-1 will-change-opacity"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
           <motion.h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 gradient-text leading-snug sm:leading-tight lg:leading-tight"
+            className="relative text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-snug sm:leading-tight lg:leading-tight"
             variants={itemVariants}
           >
-            <TypingText text="Bagus Angkasawan Sumantri Putra"/>
+            <span className="opacity-0 pointer-events-none select-none block" aria-hidden="true">
+              Bagus Angkasawan Sumantri Putra
+            </span>
+            
+            <motion.div className="absolute top-0 left-0 w-full h-full gradient-text">
+              <TypingText text="Bagus Angkasawan Sumantri Putra"/>
+            </motion.div>
           </motion.h1>
           <motion.h2
             className="text-xl sm:text-2xl lg:text-3xl font-bold text-cyan-400 mb-6"
@@ -100,7 +107,7 @@ export default function Home() {
                 href: 'https://www.instagram.com/bagusangkasawan',
                 external: true,
               },
-            ].map((social, index) => {
+            ].map((social) => {
               const Icon = social.icon;
               return (
                 <motion.div

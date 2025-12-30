@@ -16,7 +16,6 @@ export default function TypingText({
   className = '',
 }: TypingTextProps) {
   const [displayText, setDisplayText] = useState('');
-  const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
     let index = 0;
@@ -25,7 +24,6 @@ export default function TypingText({
 
     const startTyping = () => {
       setDisplayText('');
-      setIsTyping(true);
       index = 0;
 
       typingInterval = setInterval(() => {
@@ -34,7 +32,6 @@ export default function TypingText({
           index++;
         } else {
           clearInterval(typingInterval);
-          setIsTyping(false);
           restartTimeout = setTimeout(startTyping, delayAfterComplete);
         }
       }, speed);
@@ -51,7 +48,10 @@ export default function TypingText({
   return (
     <span className={className}>
       {displayText}
-      {isTyping && <span className="animate-blink text-white ml-0.5">|</span>}
+      <span 
+        className="inline-block w-[2px] h-[1em] bg-cyan-400 ml-1 animate-blink align-middle"
+        style={{ WebkitTextFillColor: 'initial' }}
+      />
     </span>
   );
 }
