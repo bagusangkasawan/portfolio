@@ -18,7 +18,7 @@ export default function HeroImage() {
   return (
     <motion.div
       className="flex justify-center md:justify-end order-1 md:order-2"
-      initial={{ opacity: 0, scale: 0.8, rotateY: -20 }}
+      initial={{ scale: 0.8, rotateY: -20 }}
       animate={{ opacity: 1, scale: 1, rotateY: 0 }}
       transition={{
         duration: 0.6,
@@ -55,9 +55,10 @@ export default function HeroImage() {
             src="/my-photo.webp"
             alt="Bagus Angkasawan"
             fill
+            priority
+            fetchPriority="high"
             sizes="(max-width: 768px) 100vw, 400px"
             className="object-contain opacity-95"
-            priority
           />
         </motion.div>
       </motion.div>

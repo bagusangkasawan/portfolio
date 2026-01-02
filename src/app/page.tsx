@@ -30,7 +30,7 @@ const itemVariants = {
 export default function Home() {
   return (
     <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-x-hidden pt-5 md:pt-0">
-      <div className="max-w-7xl w-full grid md:grid-cols-2 gap-4 md:gap-12 items-center">
+      <motion.div className="max-w-7xl w-full grid md:grid-cols-2 gap-4 md:gap-12 items-center">
         <motion.div
           className="order-2 md:order-1 will-change-opacity"
           variants={containerVariants}
@@ -38,7 +38,7 @@ export default function Home() {
           animate="visible"
         >
           <motion.h1
-            className="relative text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-snug sm:leading-tight lg:leading-tight"
+            className="relative text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-snug sm:leading-tight lg:leading-tight text-center md:text-left"
             variants={itemVariants}
           >
             <span className="opacity-0 pointer-events-none select-none block" aria-hidden="true">
@@ -50,13 +50,13 @@ export default function Home() {
             </motion.div>
           </motion.h1>
           <motion.h2
-            className="text-xl sm:text-2xl lg:text-3xl font-bold text-cyan-400 mb-6"
+            className="text-xl sm:text-2xl lg:text-3xl font-bold text-cyan-400 mb-6 text-center md:text-left"
             variants={itemVariants}
           >
             Full Stack Developer & AI/ML Engineer
           </motion.h2>
           <motion.p
-            className="text-base sm:text-lg text-gray-300 mb-8 leading-relaxed"
+            className="text-base sm:text-lg text-gray-300 mb-8 leading-relaxed text-center md:text-left"
             variants={itemVariants}
           >
             Crafting digital experiences with cutting-edge technologies. Specialized in web development, cloud computing, and machine learning.
@@ -132,7 +132,7 @@ export default function Home() {
         </motion.div>
 
         <HeroImage />
-      </div>
+      </motion.div>
     </section>
   );
 }

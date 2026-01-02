@@ -39,7 +39,9 @@ import {
   SiDocker,
   SiN8N,
   SiGooglecolab,
-  SiGooglegemini
+  SiGooglegemini,
+  SiLinux,
+  SiMlflow
 } from 'react-icons/si';
 import {
   FaJava,
@@ -62,6 +64,7 @@ const techIcons: { [key: string]: React.ElementType } = {
   'Spring Boot': SiSpringboot,
   'Next.js': SiNextdotjs,
   'Scikit-Learn': SiScikitlearn,
+  'MLflow': SiMlflow,
   'TensorFlow': SiTensorflow,
   'Neural Networks': SiKeras,
   'Generative AI': SiGooglegemini,
@@ -74,6 +77,7 @@ const techIcons: { [key: string]: React.ElementType } = {
   'PostgreSQL': SiPostgresql,
   'MongoDB': SiMongodb,
   'Oracle': SiOracle,
+  "Linux": SiLinux,
   'Git': SiGit,
   'Vite': SiVite,
   'Colab': SiGooglecolab,
@@ -143,7 +147,7 @@ export default function ExperiencePage() {
     {
       title: 'Machine Learning',
       icon: Brain,
-      skills: ['Scikit-Learn', 'TensorFlow', 'Neural Networks', 'Generative AI', 'Agentic AI'],
+      skills: ['Scikit-Learn', 'TensorFlow', 'Neural Networks', 'MLflow', 'Generative AI', 'Agentic AI'],
       color: 'from-purple-500/20 to-pink-500/20',
       borderColor: 'border-purple-500/30',
     },
@@ -164,7 +168,7 @@ export default function ExperiencePage() {
     {
       title: 'Tools & Technologies',
       icon: Wrench,
-      skills: ['Git', 'Vite', 'Colab', 'Docker', 'n8n'],
+      skills: ['Linux', 'Git', 'Vite', 'Colab', 'Docker', 'n8n'],
       color: 'from-yellow-500/20 to-orange-500/20',
       borderColor: 'border-yellow-500/30',
     },
