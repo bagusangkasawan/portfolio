@@ -36,18 +36,18 @@ export default function CertificationsPage() {
       icon: SiTensorflow,
     },
     {
-      name: 'Junior Web Developer',
-      issuer: 'BNSP (LSP Informatika)',
-      date: 'October 20, 2023',
-      url: 'https://drive.google.com/file/d/1F0m-g4tNLJW105ACH2kTKFedq-YZSmkg/view',
-      icon: FaFileAlt,
-    },
-    {
       name: 'Cloud Computing',
       issuer: 'Alibaba Cloud',
       date: 'May 22, 2024',
       url: 'https://aliyun-aps-cloud-public.oss-cn-hangzhou.aliyuncs.com/img_4b2bc5998838d997de06df7e5bcd2695.png',
       icon: SiAlibabacloud,
+    },
+    {
+      name: 'Junior Web Developer',
+      issuer: 'BNSP (LSP Informatika)',
+      date: 'October 20, 2023',
+      url: 'https://drive.google.com/file/d/1F0m-g4tNLJW105ACH2kTKFedq-YZSmkg/view',
+      icon: FaFileAlt,
     },
   ];
 

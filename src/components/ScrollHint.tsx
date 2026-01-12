@@ -18,7 +18,7 @@ export default function ScrollHint({ show }: ScrollHintProps) {
         repeat: Infinity,
       }}
       exit={{ opacity: 0 }}
-      className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40"
+      className="hidden lg:block lg:fixed lg:bottom-8 lg:left-1/2 lg:-translate-x-1/2 lg:z-40"
     >
       <div className="flex flex-col items-center gap-2">
         <p className="text-cyan-400 text-sm font-medium">Scroll to explore</p>

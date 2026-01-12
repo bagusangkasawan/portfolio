@@ -35,20 +35,26 @@ import {
   SiPostgresql,
   SiMongodb,
   SiGit,
-  SiVite,
   SiDocker,
   SiN8N,
   SiGooglecolab,
   SiGooglegemini,
   SiLinux,
-  SiMlflow
+  SiMlflow,
+  SiFastapi,
+  SiRedis,
+  SiLaravel,
+  SiKubernetes,
+  SiGin
 } from 'react-icons/si';
 import {
   FaJava,
   FaMicrosoft,
   FaAws,
-  FaRobot
+  FaRobot,
+  FaPhp
 } from 'react-icons/fa';
+import { FaGolang } from 'react-icons/fa6';
 
 const techIcons: { [key: string]: React.ElementType } = {
   'HTML': SiHtml5,
@@ -57,11 +63,16 @@ const techIcons: { [key: string]: React.ElementType } = {
   'TypeScript': SiTypescript,
   'Python': SiPython,
   'Java': FaJava,
+  'PHP': FaPhp,
+  'Go': FaGolang,
   'React': SiReact,
   'Express': SiExpress,
   'Node.js': SiNodedotjs,
   'Flask': SiFlask,
+  'FastAPI': SiFastapi,
   'Spring Boot': SiSpringboot,
+  'Laravel': SiLaravel,
+  'Gin': SiGin,
   'Next.js': SiNextdotjs,
   'Scikit-Learn': SiScikitlearn,
   'MLflow': SiMlflow,
@@ -76,12 +87,13 @@ const techIcons: { [key: string]: React.ElementType } = {
   'MySQL': SiMysql,
   'PostgreSQL': SiPostgresql,
   'MongoDB': SiMongodb,
+  'Redis': SiRedis,
   'Oracle': SiOracle,
   "Linux": SiLinux,
   'Git': SiGit,
-  'Vite': SiVite,
   'Colab': SiGooglecolab,
   'Docker': SiDocker,
+  'Kubernetes': SiKubernetes,
   'n8n': SiN8N,
 };
 
@@ -133,19 +145,19 @@ export default function ExperiencePage() {
     {
       title: 'Programming Languages',
       icon: Languages,
-      skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Python', 'Java'],
+      skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Python', 'Java', 'PHP', 'Go'],
       color: 'from-blue-500/20 to-cyan-500/20',
       borderColor: 'border-blue-500/30',
     },
     {
       title: 'Web Development',
       icon: Globe,
-      skills: ['React', 'Express', 'Node.js', 'Next.js', 'Flask', 'Spring Boot'],
+      skills: ['React', 'Express', 'Node.js', 'Next.js', 'Flask', 'FastAPI', 'Spring Boot', 'Laravel', 'Gin'],
       color: 'from-cyan-500/20 to-green-500/20',
       borderColor: 'border-cyan-500/30',
     },
     {
-      title: 'Machine Learning',
+      title: 'Artificial Intelligence',
       icon: Brain,
       skills: ['Scikit-Learn', 'TensorFlow', 'Neural Networks', 'MLflow', 'Generative AI', 'Agentic AI'],
       color: 'from-purple-500/20 to-pink-500/20',
@@ -154,21 +166,21 @@ export default function ExperiencePage() {
     {
       title: 'Cloud Computing',
       icon: Cloud,
-      skills: ['Google Cloud Platform', 'Alibaba Cloud', 'AWS', 'Microsoft Azure'],
+      skills: ['Google Cloud Platform', 'AWS', 'Microsoft Azure', 'Alibaba Cloud'],
       color: 'from-orange-500/20 to-red-500/20',
       borderColor: 'border-orange-500/30',
     },
     {
       title: 'Databases',
       icon: Database,
-      skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Oracle'],
+      skills: ['MongoDB', 'Redis', 'MySQL', 'PostgreSQL', 'Oracle'],
       color: 'from-green-500/20 to-emerald-500/20',
       borderColor: 'border-green-500/30',
     },
     {
       title: 'Tools & Technologies',
       icon: Wrench,
-      skills: ['Linux', 'Git', 'Vite', 'Colab', 'Docker', 'n8n'],
+      skills: ['Linux', 'Git', 'Docker', 'Kubernetes', 'Colab', 'n8n'],
       color: 'from-yellow-500/20 to-orange-500/20',
       borderColor: 'border-yellow-500/30',
     },
@@ -372,7 +384,7 @@ export default function ExperiencePage() {
                 Advanced
               </h3>
               <div className="space-y-3">
-                {['Python', 'AI/ML', 'Cloud Computing', 'Docker/Container'].map(
+                {['Python', 'AI/ML', 'Cloud Computing', 'Docker/Containers'].map(
                   (skill, idx) => (
                     <motion.div
                       key={idx}
@@ -416,7 +428,7 @@ export default function ExperiencePage() {
                 Learning
               </h3>
               <div className="space-y-3">
-                {['Go', 'Laravel', 'GraphQL', 'Blockchain'].map(
+                {['Go (Gin)', 'PHP (Laravel)', 'GraphQL', 'Blockchain'].map(
                   (skill, idx) => (
                     <motion.div
                       key={idx}

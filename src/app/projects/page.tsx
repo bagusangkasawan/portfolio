@@ -122,8 +122,8 @@ export default function ProjectsPage() {
         'Deployed on Google Cloud Platform'
       ],
       status: 'Completed',
-      github: '#',
-      link: '#',
+      github: 'https://github.com/CourseMate-Capstone-Project',
+      link: 'https://github.com/CourseMate-Capstone-Project',
     },
     {
       title: 'MentalMate v1',
@@ -137,12 +137,12 @@ export default function ProjectsPage() {
         'Secure user data handling'
       ],
       status: 'Completed',
-      github: '#',
-      link: '#',
+      github: 'https://github.com/bagusangkasawan/MentalMate',
+      link: 'https://github.com/bagusangkasawan/MentalMate',
     },
     {
       title: 'MentyMate (MentalMate v2)',
-      description: 'Enhanced mental health assistant with interactive features',
+      description: 'Enhanced AI assistant with interactive features',
       longDescription: 'Upgraded version of MentalMate with enhanced interactive capabilities, improved UI/UX, and advanced mental health features. Top 30 winner in Yayasan Peduli BUMN Hackathon - Pikiran Terbaik Negeri x elevAIte. Features include progress tracking, community support, and professional resource integration.',
       technologies: ['React', 'TypeScript', 'Python', 'Generative AI', 'Google Cloud Platform'],
       highlights: [
@@ -152,8 +152,8 @@ export default function ProjectsPage() {
         'Enhanced user experience'
       ],
       status: 'Completed',
-      github: '#',
-      link: '#',
+      github: 'https://github.com/bagusangkasawan/MentyMate',
+      link: 'https://github.com/bagusangkasawan/MentyMate',
     },
     {
       title: 'EnergyMate',
@@ -167,8 +167,8 @@ export default function ProjectsPage() {
         '40% average energy savings'
       ],
       status: 'Completed',
-      github: '#',
-      link: '#',
+      github: 'https://github.com/EnergyMate',
+      link: 'https://github.com/EnergyMate',
     },
     {
       title: 'EduMate',
@@ -182,8 +182,38 @@ export default function ProjectsPage() {
         'Adaptive learning algorithms'
       ],
       status: 'Completed',
-      github: '#',
-      link: '#',
+      github: 'https://github.com/bagusangkasawan/EduMate-educourse.id',
+      link: 'https://github.com/bagusangkasawan/EduMate-educourse.id',
+    },
+    {
+      title: 'EkrafMate',
+      description: 'Creative talent matching and opportunity platform',
+      longDescription: 'Innovative platform connecting creative talents with business opportunities. Facilitates collaboration between creative professionals and organizations seeking creative services. Features portfolio showcasing, project matching, and collaboration tools.',
+      technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'AWS'],
+      highlights: [
+        'Talent matching algorithm',
+        'Portfolio management system',
+        'Project collaboration features',
+        'Skill-based recommendations'
+      ],
+      status: 'Completed',
+      github: 'https://github.com/bagusangkasawan/EkrafMate',
+      link: 'https://github.com/bagusangkasawan/EkrafMate',
+    },
+    {
+      title: 'CoMate',
+      description: 'Collaborative platform selected in Meta Llama Project Incubator',
+      longDescription: 'An innovative collaborative platform built by an amazing team that achieved Top 50 (Rank 22) recognition in the prestigious Llama Project Incubator by Meta x Hacktiv8 Indonesia. The project demonstrates strong potential in leveraging Meta\'s Llama AI technology for creating meaningful collaborative experiences.',
+      technologies: ['Python', 'Generative AI', 'Llama AI', 'React', 'Node.js', 'Google Cloud Platform'],
+      highlights: [
+        'Top 50 Llama Project Incubator finalist',
+        'Meta x Hacktiv8 Indonesia partnership',
+        'Leverages cutting-edge Llama AI technology',
+        'Innovative collaborative platform design'
+      ],
+      status: 'Completed',
+      github: 'https://github.com/bagusangkasawan/CoMate',
+      link: 'https://github.com/bagusangkasawan/CoMate',
     },
     {
       title: 'CheckMate',
@@ -196,7 +226,7 @@ export default function ProjectsPage() {
         'Top 20 Hackinfest winner',
         'Compliance checking system'
       ],
-      status: 'Completed',
+      status: 'In Progress',
       github: '#',
       link: '#',
     },
@@ -215,36 +245,6 @@ export default function ProjectsPage() {
       github: '#',
       link: '#',
     },
-    {
-      title: 'EkrafMate',
-      description: 'Creative talent matching and opportunity platform',
-      longDescription: 'Innovative platform connecting creative talents with business opportunities. Facilitates collaboration between creative professionals and organizations seeking creative services. Features portfolio showcasing, project matching, and collaboration tools.',
-      technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'AWS'],
-      highlights: [
-        'Talent matching algorithm',
-        'Portfolio management system',
-        'Project collaboration features',
-        'Skill-based recommendations'
-      ],
-      status: 'In Progress',
-      github: '#',
-      link: '#',
-    },
-    {
-      title: 'CoMate',
-      description: 'Collaborative platform selected in Meta Llama Project Incubator',
-      longDescription: 'An innovative collaborative platform built by an amazing team that achieved Top 50 (Rank 22) recognition in the prestigious Llama Project Incubator by Meta x Hacktiv8 Indonesia. The project demonstrates strong potential in leveraging Meta\'s Llama AI technology for creating meaningful collaborative experiences.',
-      technologies: ['Python', 'Generative AI', 'Llama AI', 'React', 'Node.js', 'Google Cloud Platform'],
-      highlights: [
-        'Top 50 Llama Project Incubator finalist',
-        'Meta x Hacktiv8 Indonesia partnership',
-        'Leverages cutting-edge Llama AI technology',
-        'Innovative collaborative platform design'
-      ],
-      status: 'In Progress',
-      github: '#',
-      link: '#',
-    }
   ];
 
   const containerVariants = {
@@ -377,6 +377,8 @@ export default function ProjectsPage() {
                     {project.github && (
                       <a
                         href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-center py-1 rounded text-xs bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-white transition-colors"
                       >
                         GitHub
@@ -385,6 +387,8 @@ export default function ProjectsPage() {
                     {project.link && (
                       <a
                         href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="text-center py-1 rounded text-xs bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 transition-colors"
                       >
                         Live
@@ -550,6 +554,8 @@ export default function ProjectsPage() {
                         {project.github && (
                           <a
                             href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800/50 hover:bg-gray-700/50 text-gray-300 hover:text-white transition-colors"
                           >
                             <SiGithub className="w-5 h-5" />
@@ -559,6 +565,8 @@ export default function ProjectsPage() {
                         {project.link && (
                           <a
                             href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-400 hover:text-cyan-300 transition-colors border border-cyan-500/30"
                           >
                             <ExternalLink className="w-5 h-5" />

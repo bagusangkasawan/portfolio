@@ -146,16 +146,16 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-4 text-gray-300 leading-relaxed">
             <p>
-              I'm a Full Stack Developer with a passion for building modern, scalable web applications. My journey began with a curiosity about how things work online, which evolved into a comprehensive skill set spanning frontend, backend, and cloud technologies.
+              I'm a Full Stack Developer with a strong interest in building modern and scalable web applications. My journey started from a curiosity about how digital products work, which gradually evolved into hands-on experience across frontend, backend, and cloud technologies.
             </p>
             <p>
-              Throughout my career, I've worked with various technologies including React, Node.js, Spring Boot, and cloud platforms like AWS and Google Cloud. I'm particularly passionate about machine learning and AI, having participated in multiple intensive programs and bootcamps.
+              Throughout my journey, I have worked with various technologies such as React, Node.js, Spring Boot, and cloud platforms including AWS and Google Cloud. I'm particularly passionate about machine learning and AI, having participated in multiple intensive programs and bootcamps.
             </p>
             <p>
-              Beyond coding, I believe in continuous learning and sharing knowledge. I've had the opportunity to mentor junior developers and facilitate learning programs at Dicoding, helping the next generation of developers succeed.
+              Beyond development, I enjoy being involved in learning communities. I have taken roles as a mentor and facilitator in intensive programs, where I helped guide participants through structured learning paths and practical projects.
             </p>
             <p>
-              When I'm not coding, I'm exploring new technologies, contributing to open-source projects, or discussing the latest trends in web development and artificial intelligence.
+              Outside of coding, I actively explore new technologies and experiment with new tools to sharpen my skills. I enjoy learning through hands-on practice and staying updated with trends in web development and artificial intelligence.
             </p>
           </div>
         </motion.div>
